@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import Board from './board'
-import { style } from './styles'
+import Options from './options'
+import './App.css'
 
 
 class App extends Component {
   render() {
     return (
-      <main style={style}>
+      <main className="main">
         <Board />
+        <Options />
       </main>
     );
   }

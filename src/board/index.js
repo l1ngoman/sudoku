@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Square from '../square'
-import { style,boardContainer } from './styles'
+import './styles.css'
 
 class Board extends Component {
   constructor(props){
@@ -9,22 +9,18 @@ class Board extends Component {
     this.state = {
       squareArray: new Array(81).fill(''),
       formattedSquares: {
-                          one: [
-                                [18,19,21,22,24,25,26],
-                                [45,46,48,49,51,52,53]
-                               ],
-                          two: [
-                                [2,11,29,38,56,65,74],
-                                [5,14,32,41,59,68,77]
-                               ],
-                          three: [20,23,47,50]
-                        }
+        one: [[18,19,21,22,24,25,26],
+              [45,46,48,49,51,52,53]],
+        two: [[2,11,29,38,56,65,74],
+              [5,14,32,41,59,68,77]],
+        three: [20,23,47,50]
+      },
     }
   }
   render() {
-    let { squareArray } = this.state
+    let { squareArray,style } = this.state
     return (
-      <main style={boardContainer}>
+      <main className="boardContainer">
         {this.state.squareArray}
       </main>
     );
@@ -34,7 +30,7 @@ class Board extends Component {
     this.renderSquares();
   }
 
-  renderSquares = () => {
+  renderSquares = (id) => {
     let { squareArray } = this.state;
     let { one,two,three } = this.state.formattedSquares;
     let squares = squareArray.map((el,i) => {
@@ -46,9 +42,34 @@ class Board extends Component {
       }else if(three.indexOf(i) >= 0){
         altFormat = 3;
       }
-      return <Square key={i} id={i} altFormat={altFormat} />
+
+      if(id === i){
+        return (
+          <Square
+            key={i}
+            id={i}
+            altFormat={altFormat}
+            handleClickBoard={this.handleClickBoard}
+            viewOn={true}
+            />
+           );
+      }else{
+        return (
+          <Square
+            key={i}
+            id={i}
+            altFormat={altFormat}
+            handleClickBoard={this.handleClickBoard}
+            viewOn={false}
+            />
+           );
+         }
     })
     this.setState({squareArray: squares});
+  }
+
+  handleClickBoard = (squareID) => {
+    this.renderSquares(squareID)
   }
 }
 
