@@ -1,0 +1,23 @@
+.boardContainer {
+ display: flex;
+ flex-wrap: wrap;
+ max-width: 500px;
+}
+
+
+
+
+@media only screen and (min-width: 768px) {
+    /* tablets and desktop */
+}
+
+@media only screen and (max-width: 767px) {
+    /* phones */
+  .boardContainer {
+    max-width: 250px;
+  }
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    /* portrait phones */
+}
