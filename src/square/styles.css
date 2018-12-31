@@ -1,8 +1,12 @@
+.square {
+  text-align: center;
+  font-size: 40px;
+}
 .normal {
   border: 1px solid black;
   cursor: pointer;
   height: 50px;
-  width: 50px
+  width: 50px;
 }
 
 .thickBtm {
@@ -13,9 +17,6 @@
   border-right: 2px solid black
 }
 
-.selected {
-  background-color: lightblue
-}
 
 @media only screen and (min-width: 768px) {
     /* tablets and desktop */
@@ -23,6 +24,9 @@
 
 @media only screen and (max-width: 767px) {
     /* phones */
+  .square {
+    font-size: 20px;
+  }
   .normal {
     height: 25px;
     width: 25px;
