@@ -5,14 +5,32 @@ import './App.css'
 
 
 class App extends Component {
+  constructor(props){
+    super(props)
+
+    this.state = {
+      userValue: '',
+      squareID: ''
+    }
+  }
   render() {
     return (
       <main className="main">
-        <Board />
-        <Options />
+        <section className="board">
+          <Board userValue={this.state.userValue}/>
+        </section>
+        <section className="options">
+          <Options getValue={this.getValue}/>
+        </section>
       </main>
     );
   }
+
+  getValue = (buttonValue) => {
+    console.log(buttonValue);
+    this.setState({userValue: buttonValue})
+  }
+
 }
 
 export default App;

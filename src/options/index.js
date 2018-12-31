@@ -3,9 +3,9 @@ import Button from './button'
 
 class Options extends Component {
   render() {
-    let btns = new Array(9).fill('').map((el,i) => <Button key={i} id={i+1}/>)
+    let btns = new Array(9).fill('').map((el,i) => <Button key={i} id={i+1} getValue={this.props.getValue}/>)
     return (
-      <main>
+      <main className="optionsContainer">
         {btns}
       </main>
     );

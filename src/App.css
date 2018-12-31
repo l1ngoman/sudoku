@@ -1,5 +1,43 @@
 .main {
+  /* border: 1px solid yellow; */
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+}
+
+.board {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  max-width: 475px;
+  min-width: 475px;
+}
+
+.options {
+  /* border: 1px solid blue; */
+  display: flex;
   align-items: center;
+  width: 45px;
+}
+
+@media only screen and (min-width: 768px) {
+    /* tablets and desktop */
+}
+
+@media only screen and (max-width: 767px) {
+    /* phones */
+    .main {
+      flex-direction: column;
+      align-items: center;
+    }
+    .options {
+      flex-direction: column;
+      align-items: center;
+      max-width: 475px;
+      min-width: 475px;
+      height: 20px;
+    }
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    /* portrait phones */
 }
